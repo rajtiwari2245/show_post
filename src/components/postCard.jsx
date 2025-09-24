@@ -1,18 +1,34 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { X } from "lucide-react"; 
 
-function postCard({ post, onRemove }) {
+function PostCard({ post, onRemove }) {
   return (
-    <div className=" relative bg-white p-4 rounded-lg shadow ">
+    <motion.div
+      className="relative bg-white p-5 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300"
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      {/* Remove Button */}
       <button
-        className="absolute top-2  right-2 text-red-500 text-xl hover:text-red-700 cursor-pointer"
         onClick={() => onRemove(post.id)}
+        className="absolute top-3 right-3 text-red-500 hover:text-red-600 transition-colors"
+        aria-label="Remove Post"
       >
-        &times;
+        <X size={20} />
       </button>
-      <h2 className="text-lg font -semibold mb-2"> {post.tiite}</h2>
-      <p className="text-gray-700">{post.body}</p>
-    </div>
+
+      {/* Post Title */}
+      <h2 className="text-xl font-semibold mb-2 text-gray-800 line-clamp-1">
+        {post.title}
+      </h2>
+
+      {/* Post Body */}
+      <p className="text-gray-600 text-sm leading-relaxed">
+        {post.body}
+      </p>
+    </motion.div>
   );
 }
 
-export default postCard;
+export default PostCard;
