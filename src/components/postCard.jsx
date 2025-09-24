@@ -9,7 +9,7 @@ function PostCard({ post, onRemove }) {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
-      {/* Remove Button */}
+      
       <button
         onClick={() => onRemove(post.id)}
         className="absolute top-3 right-3 text-red-500 hover:text-red-600 transition-colors"
@@ -18,12 +18,12 @@ function PostCard({ post, onRemove }) {
         <X size={20} />
       </button>
 
-      {/* Post Title */}
+      
       <h2 className="text-xl font-semibold mb-2 text-gray-800 line-clamp-1">
         {post.title}
       </h2>
 
-      {/* Post Body */}
+     
       <p className="text-gray-600 text-sm leading-relaxed">
         {post.body}
       </p>

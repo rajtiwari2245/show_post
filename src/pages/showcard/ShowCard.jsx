@@ -28,14 +28,14 @@ function ShowCard() {
     );
   }
 
-  // --- Filter & Pagination Logic ---
+  
   const filteredPosts = allPosts.filter((post) => !removedIds.has(post.id));
   const totalPosts = filteredPosts.length;
 
   const startIndex = (currentPage - 1) * PER_PAGE;
   const currentPosts = filteredPosts.slice(startIndex, startIndex + PER_PAGE);
 
-  // --- Handlers ---
+  
   const handleRemove = (id) => {
     dispatch({ type: "REMOVE_POST", payload: id });
   };
@@ -46,7 +46,7 @@ function ShowCard() {
 
   return (
     <div className="space-y-6">
-      {/* Posts Grid */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <AnimatePresence>
           {currentPosts.length > 0 ? (
@@ -74,7 +74,7 @@ function ShowCard() {
         </AnimatePresence>
       </div>
 
-      {/* Pagination */}
+      
       {totalPosts > PER_PAGE && (
         <Pagination
           totalItem={totalPosts}
